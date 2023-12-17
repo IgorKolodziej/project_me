@@ -2,7 +2,7 @@
 
 ## Description
 
-Provide a brief description of your project here.
+Lecimy nie śpimy
 
 ## Getting Started
 
@@ -12,14 +12,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 - Python 3.11
 - Poetry
-- Pre-commit
 
 ### Installing
 
 1. **Clone the repository**
 
 \`\`\`bash
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/IgorKolodziej/project_me.git
 cd your-repo-name
 \`\`\`
 
@@ -45,15 +44,7 @@ With Poetry installed, you can install all dependencies by running:
 poetry install
 \`\`\`
 
-5. **Install pre-commit**
-
-Pre-commit is a tool to manage Git hooks. You can install it by running:
-
-\`\`\`bash
-poetry run pip install pre-commit
-\`\`\`
-
-6. **Run pre-commit hooks**
+5. **Run pre-commit hooks**
 
 You can run all pre-commit hooks on all files by running:
 
@@ -72,6 +63,8 @@ Add additional notes about how to deploy this on a live system.
 ## Built With
 
 * Dash - The web framework used
+* Plotly
+* Pandas
 * Poetry - Dependency Management
 * Pre-commit - Git hooks manager
 
