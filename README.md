@@ -17,10 +17,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. **Clone the repository**
 
-\`\`\`bash
+```bash
 git clone https://github.com/IgorKolodziej/project_me.git
 cd your-repo-name
-\`\`\`
+```
 
 2. **Set up Python environment**
 
@@ -32,25 +32,25 @@ https://www.python.org/downloads/
 
 Poetry is a tool for dependency management and packaging in Python. You can install it by running:
 
-\`\`\`bash
+```bash
 pip install poetry
-\`\`\`
+```
 
 4. **Install dependencies**
 
 With Poetry installed, you can install all dependencies by running:
 
-\`\`\`bash
+```bash
 poetry install
-\`\`\`
+```
 
 5. **Run pre-commit hooks**
 
 You can run all pre-commit hooks on all files by running:
 
-\`\`\`bash
+```bash
 poetry run pre-commit run --all-files
-\`\`\`
+```
 
 ## Running the tests
 
