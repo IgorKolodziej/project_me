@@ -11,6 +11,7 @@ pandas = "^2.1.4"
 dash = "^2.14.2"
 plotly = "^5.18.0"
 dash-mantine-components = "^0.12.1"
+pre-commit = "^3.6.0"
 
 
 [build-system]
