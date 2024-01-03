@@ -9,10 +9,10 @@ def calculate_speeds(gpx_file_path):
     with open(gpx_file_path, "r") as gpx_file:
         gpx = gpxpy.parse(gpx_file)
 
-    speeds = []# List to hold calculated speeds
+    speeds = []  # List to hold calculated speeds
     all_points = [
         pt for trk in gpx.tracks for seg in trk.segments for pt in seg.points
-    ]# noqa: E501
+    ]  # noqa: E501
     start_time = all_points[0].time
 
     for i in range(len(all_points) - 1):

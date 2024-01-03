@@ -28,25 +28,7 @@ routes = {
 }
 
 
-# layout = dmc.Container(
-#     [
-#         dmc.Title("Map", color="blue", size="h1"),
-#       #  dmc.Text("This is a subpage. Navigate back to the main page or interact with the elements below.", size="md"),
-#         dcc.Link(
-#             dmc.Button("Home Page", variant="outline"),
-#             href='/',
-#         ),
-#         dcc.Link(
-#             dmc.Button("Map", variant="outline"),
-#             href='/subpage',
-#         ),
-#         # ... include specific components for the subpage here
-#     ],
-#     fluid=True,
-# )
 
-
-# Define a function to format times for the slider marks
 def format_times(times):
     marks = {}
     for i, time in enumerate(times):
@@ -113,13 +95,13 @@ layout = html.Div(
                         html.Div(
                             [
                                 dmc.Text(
-                                    "Każdy z nas wybrał się na indywidualny bieg w okolicach Woli, by w sportowym duchu porównać czasy i trasy naszych przebieżek.",  # noqa: E501
+                                    "Każdy z nas wybrał się na indywidualny bieg w okolicach Woli, by w sportowym duchu porównać czasy i trasy naszych przebieżek.",# noqa: E501
                                     color="black",
                                     size="h3",
                                     align="left",
                                 ),
                                 dmc.Text(
-                                    "Mateusz, Igor oraz Nazari, wyposażeni w smartfony, wyruszyli w różne strony, eksplorując malownicze ścieżki i ulice dzielnicy.",  # noqa: E501
+                                    "Mateusz, Igor oraz Nazari, wyposażeni w smartfony, wyruszyli w różne strony, eksplorując malownicze ścieżki i ulice dzielnicy.",# noqa: E501
                                     color="black",
                                     size="h3",
                                     align="left",
