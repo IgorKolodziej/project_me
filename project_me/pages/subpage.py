@@ -12,7 +12,9 @@ def parse_gpx(file_path):
         track = gpx.tracks[0]
         segment = track.segments[0]
         # Extracting coordinates and times
-        coords = [(point.latitude, point.longitude) for point in segment.points]
+        coords = [
+            (point.latitude, point.longitude) for point in segment.points
+        ]# noqa: E501
         times = [point.time for point in segment.points]
     return coords, times
 
@@ -70,7 +72,9 @@ layout = html.Div(
                         dl.Map(
                             [
                                 dl.TileLayer(),
-                                dl.Polyline(id="route", positions=route1_coords),
+                                dl.Polyline(
+                                    id="route", positions=route1_coords
+                                ),# noqa: E501
                             ],
                             id="map",
                             style={
@@ -110,7 +114,6 @@ layout = html.Div(
                             orientation="vertical",
                             withAsterisk=True,
                             # label="Select a Route",
-                            # description="Choose a route to display on the map.",
                             size="md",
                             style={"marginBottom": "40px"},
                             children=[
@@ -120,7 +123,9 @@ layout = html.Div(
                             ],
                         ),
                         # Label for displaying current time and speed
-                        html.Div(id="time-speed-label", style={"fontSize": 20}),
+                        html.Div(
+                            id="time-speed-label", style={"fontSize": 20}
+                        ),# noqa: E501
                         dcc.Slider(
                             id="time-slider",
                             min=0,
