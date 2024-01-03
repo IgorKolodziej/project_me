@@ -14,7 +14,7 @@ def parse_gpx(file_path):
         # Extracting coordinates and times
         coords = [
             (point.latitude, point.longitude) for point in segment.points
-        ] # noqa: E501
+        ]  # noqa: E501
         times = [point.time for point in segment.points]
     return coords, times
 
@@ -74,7 +74,7 @@ layout = html.Div(
                                 dl.TileLayer(),
                                 dl.Polyline(
                                     id="route", positions=route1_coords
-                                ), # noqa: E501
+                                ),  # noqa: E501
                             ],
                             id="map",
                             style={
@@ -125,7 +125,7 @@ layout = html.Div(
                         # Label for displaying current time and speed
                         html.Div(
                             id="time-speed-label", style={"fontSize": 20}
-                        ), # noqa: E501
+                        ),  # noqa: E501
                         dcc.Slider(
                             id="time-slider",
                             min=0,
