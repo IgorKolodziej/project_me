@@ -28,7 +28,6 @@ routes = {
 }
 
 
-
 def format_times(times):
     marks = {}
     for i, time in enumerate(times):
@@ -42,8 +41,6 @@ layout = html.Div(
     [
         dmc.Container(
             [
-                # dmc.Title("Main Page", color="blue", size="h1"),
-                # dmc.Text("This is the main page of the multi-page dashboard.", size="md"),
                 dcc.Link(
                     dmc.Button("Home Page", variant="outline"),
                     href="/",
@@ -56,8 +53,6 @@ layout = html.Div(
                     dmc.Button("About", variant="outline"),
                     href="/about",
                 ),
-                # create_dropdown()
-                # ... include other components from the original app here
             ],
             fluid=True,
             style={
@@ -95,13 +90,13 @@ layout = html.Div(
                         html.Div(
                             [
                                 dmc.Text(
-                                    "Każdy z nas wybrał się na indywidualny bieg w okolicach Woli, by w sportowym duchu porównać czasy i trasy naszych przebieżek.",# noqa: E501
+                                    "Każdy z nas wybrał się na indywidualny bieg w okolicach Woli, by w sportowym duchu porównać czasy i trasy naszych przebieżek.",  # noqa: E501
                                     color="black",
                                     size="h3",
                                     align="left",
                                 ),
                                 dmc.Text(
-                                    "Mateusz, Igor oraz Nazari, wyposażeni w smartfony, wyruszyli w różne strony, eksplorując malownicze ścieżki i ulice dzielnicy.",# noqa: E501
+                                    "Mateusz, Igor oraz Nazari, wyposażeni w smartfony, wyruszyli w różne strony, eksplorując malownicze ścieżki i ulice dzielnicy.",  # noqa: E501
                                     color="black",
                                     size="h3",
                                     align="left",
