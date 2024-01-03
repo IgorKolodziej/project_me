@@ -1,26 +1,24 @@
+from app import app
 from dash import dcc, html
 from dash.dependencies import Input, Output
-from app import app
-from pages import main
-from pages import subpage
-from pages import about
+from pages import about, main, subpage
 
-app.layout = html.Div([
-    dcc.Location(id='url', refresh=False),
-    html.Div(id='page-content')
-])
+app.layout = html.Div(
+    [dcc.Location(id="url", refresh=False), html.Div(id="page-content")]
+)
 
-@app.callback(Output('page-content', 'children'),
-              [Input('url', 'pathname')])
+
+@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def display_page(pathname):
-    if pathname == '/':
+    if pathname == "/":
         return main.layout
-    elif pathname == '/subpage':
+    elif pathname == "/subpage":
         return subpage.layout
-    elif pathname == '/about':
+    elif pathname == "/about":
         return about.layout
     else:
-        return '404'
+        return "404"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run_server(debug=True)
