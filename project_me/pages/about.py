@@ -28,12 +28,12 @@ layout = dmc.Container(
                             style={"margin": "0 0 10px"},
                         ),
                         dmc.Text(
-                            "Ten projekt, będący krzyżówką technik wizualizacji danych i pasji do biegania, celebruje połączenie świata liczb z energią ruchu. W nim każdy przebyty metr zamienia się w wizualną opowieść, a oddech biegacza rytmicznie splata się z pulsującymi danymi.",
+                            "Ten projekt, będący krzyżówką technik wizualizacji danych i pasji do biegania, celebruje połączenie świata liczb z energią ruchu. W nim każdy przebyty metr zamienia się w wizualną opowieść, a oddech biegacza rytmicznie splata się z pulsującymi danymi.",  # noqa: E501
                             align="left",
                             style={"margin": "0 0 10px"},
                         ),
                         dmc.Text(
-                            "W tej innowacyjnej przestrzeni, dane i bieganie stanowią dwa filary ludzkiego dążenia - do poznania i aktywności. Tu, w harmonii cyfr i kroków, tworzymy nie tylko projekt, lecz narrację o życiu, odkryciach i nieustającym marszu naprzód.",
+                            "W tej innowacyjnej przestrzeni, dane i bieganie stanowią dwa filary ludzkiego dążenia - do poznania i aktywności. Tu, w harmonii cyfr i kroków, tworzymy nie tylko projekt, lecz narrację o życiu, odkryciach i nieustającym marszu naprzód.",  # noqa: E501
                             align="left",
                         ),
                     ],
@@ -46,8 +46,6 @@ layout = dmc.Container(
                 # Prawa kolumna z placeholderem na zdjęcie
                 html.Div(
                     [
-                        # Tutaj można umieścić rzeczywisty obrazek, używając html.Img()
-                        # Poniżej znajduje się przykładowy placeholder.
                         html.Div(
                             "Tu będzie zdjęcie",
                             style={

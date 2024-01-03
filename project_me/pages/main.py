@@ -1,6 +1,7 @@
 import dash_mantine_components as dmc
-from dash import dcc, html
-from layouts import create_dropdown
+from dash import dcc
+
+# from layouts import create_dropdown
 
 layout = dmc.Container(
     [

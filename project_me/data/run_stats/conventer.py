@@ -2,15 +2,17 @@ import csv
 
 import gpxpy
 import gpxpy.gpx
-from haversine import Unit, haversine
+from haversine import haversine
 
 
 def calculate_speeds(gpx_file_path):
     with open(gpx_file_path, "r") as gpx_file:
         gpx = gpxpy.parse(gpx_file)
 
-    speeds = []  # List to hold calculated speeds
-    all_points = [pt for trk in gpx.tracks for seg in trk.segments for pt in seg.points]
+    speeds = []# List to hold calculated speeds
+    all_points = [
+        pt for trk in gpx.tracks for seg in trk.segments for pt in seg.points
+    ]# noqa: E501
     start_time = all_points[0].time
 
     for i in range(len(all_points) - 1):
@@ -20,7 +22,9 @@ def calculate_speeds(gpx_file_path):
         distance_km = haversine((lat1, lon1), (lat2, lon2))
 
         # Calculate time difference in seconds
-        time_diff_sec = (all_points[i + 1].time - all_points[i].time).total_seconds()
+        time_diff_sec = (
+            all_points[i + 1].time - all_points[i].time
+        ).total_seconds()  # noqa: E501
 
         # Calculate speed (km/s) and convert to km/h
         if time_diff_sec > 0:

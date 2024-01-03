@@ -113,13 +113,13 @@ layout = html.Div(
                         html.Div(
                             [
                                 dmc.Text(
-                                    "Każdy z nas wybrał się na indywidualny bieg w okolicach Woli, by w sportowym duchu porównać czasy i trasy naszych przebieżek.",
+                                    "Każdy z nas wybrał się na indywidualny bieg w okolicach Woli, by w sportowym duchu porównać czasy i trasy naszych przebieżek.",  # noqa: E501
                                     color="black",
                                     size="h3",
                                     align="left",
                                 ),
                                 dmc.Text(
-                                    "Mateusz, Igor oraz Nazari, wyposażeni w smartfony, wyruszyli w różne strony, eksplorując malownicze ścieżki i ulice dzielnicy.",
+                                    "Mateusz, Igor oraz Nazari, wyposażeni w smartfony, wyruszyli w różne strony, eksplorując malownicze ścieżki i ulice dzielnicy.",  # noqa: E501
                                     color="black",
                                     size="h3",
                                     align="left",
