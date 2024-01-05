@@ -229,6 +229,25 @@ files = [
 ]
 
 [[package]]
+name = "dash-leaflet"
+version = "1.0.13"
+description = "Dash Leaflet is a light wrapper around React-Leaflet. The syntax is similar to other Dash components, with naming conventions following the React-Leaflet API."
+optional = false
+python-versions = "*"
+files = [
+    {file = "dash_leaflet-1.0.13-py3-none-any.whl", hash = "sha256:ebaa22de6349155ad7fb0d7121d537445fbded29556a198d38002342614ede3d"},
+    {file = "dash_leaflet-1.0.13.tar.gz", hash = "sha256:ef5ae3cae598eca40cfbd9a0774dde85c8b80a5b1d7e9b2988328bca5ae3bb37"},
+]
+
+[package.dependencies]
+dash = ">=2.13.0"
+
+[package.extras]
+all = ["dash-extensions (>=1.0.3)", "dash-svg", "geobuf (==1.1.1)", "protobuf (==3.20.0)"]
+geobuf = ["geobuf (==1.1.1)", "protobuf (==3.20.0)"]
+svg = ["dash-svg"]
+
+[[package]]
 name = "dash-mantine-components"
 version = "0.12.1"
 description = "Plotly Dash Components based on Mantine"
@@ -298,6 +317,17 @@ Werkzeug = ">=3.0.0"
 [package.extras]
 async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
+
+[[package]]
+name = "gpxpy"
+version = "1.6.2"
+description = "GPX file parser and GPS track manipulation library"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "gpxpy-1.6.2-py3-none-any.whl", hash = "sha256:289bc2d80f116c988d0a1e763fda22838f83005573ece2bbc6521817b26fb40a"},
+    {file = "gpxpy-1.6.2.tar.gz", hash = "sha256:a72c484b97ec42b80834353b029cc8ee1b79f0ffca1179b2210bb3baf26c01ae"},
+]
 
 [[package]]
 name = "identify"
@@ -889,4 +919,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "98b555f1a7655148848e538f890e2bb7a5c0c5de10406a1eac5a60a8d99aa35a"
+content-hash = "10fe4a42e8642b44062d3acec98257b64946a7201c12acdebe8b4c4d6c09ad36"
