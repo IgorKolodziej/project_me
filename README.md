@@ -38,13 +38,18 @@ pip install poetry
 
 4. **Install dependencies**
 
-With Poetry installed, you can install all dependencies by running:
+With Poetry installed, you can create a virtual environment with all necessary dependencies by running:
 
 ```bash
 poetry install
 ```
-
-5. **Run pre-commit hooks**
+##### Development
+5. **Set up pre-commit**
+Set up pre-commit hooks by running:
+```bash
+poetry run pre-commit install
+```
+This will install pre-commit hooks for you. Now, every time you commit a change, pre-commit will run the hooks on all files that you have changed.
 
 You can run all pre-commit hooks on all files by running:
 
