@@ -1,25 +1,16 @@
+import dash_bootstrap_components as dbc
 import dash_mantine_components as dmc
-from dash import dcc, html
+import pages.components
+from dash import html
 
-layout = dmc.Container(
+layout = dbc.Container(
     [
-        dcc.Link(
-            dmc.Button("Home Page", variant="outline"),
-            href="/",
-        ),
-        dcc.Link(
-            dmc.Button("Map", variant="outline"),
-            href="/subpage",
-        ),
-        dcc.Link(
-            dmc.Button("About", variant="filled"),
-            href="/about",
-        ),
+        pages.components.top_layout,
         # Nowy div z gridem
-        html.Div(
+        dbc.Row(
             [
                 # Lewa kolumna z tekstem
-                html.Div(
+                dbc.Col(
                     [
                         dmc.Title(
                             "Dane i bieganie to przyszłość ",
@@ -37,14 +28,10 @@ layout = dmc.Container(
                             align="left",
                         ),
                     ],
-                    style={
-                        "width": "30%",
-                        "display": "inline-block",
-                        "paddingRight": "30px",
-                    },
+                    width=3,
                 ),
                 # Prawa kolumna z placeholderem na zdjęcie
-                html.Div(
+                dbc.Col(
                     [
                         html.Div(
                             "Tu będzie zdjęcie",
@@ -59,7 +46,7 @@ layout = dmc.Container(
                             },
                         )
                     ],
-                    style={"width": "50%", "display": "inline-block"},
+                    width=6,
                 ),
             ],
             style={
@@ -69,7 +56,7 @@ layout = dmc.Container(
                 "justifyContent": "center",
                 "alignItems": "center",
             },
-        )
+        ),
         # ... można dodać inne komponenty
     ],
     fluid=True,

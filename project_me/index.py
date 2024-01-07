@@ -1,7 +1,7 @@
+import pages
 from app import app
 from dash import dcc, html
 from dash.dependencies import Input, Output
-from pages import about, main, subpage
 
 app.layout = html.Div(
     [dcc.Location(id="url", refresh=False), html.Div(id="page-content")]
@@ -11,11 +11,13 @@ app.layout = html.Div(
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def display_page(pathname):
     if pathname == "/":
-        return main.layout
-    elif pathname == "/subpage":
-        return subpage.layout
+        return pages.stats_layout
+    if pathname == "/stats":
+        return pages.stats_layout
+    elif pathname == "/map":
+        return pages.map_layout
     elif pathname == "/about":
-        return about.layout
+        return pages.about_layout
     else:
         return "404"
 

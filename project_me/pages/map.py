@@ -1,6 +1,8 @@
+import dash_bootstrap_components as dbc
 import dash_leaflet as dl
 import dash_mantine_components as dmc
 import gpxpy
+import pages.components
 from app import app
 from dash import dcc, html
 from dash.dependencies import Input, Output
@@ -39,31 +41,9 @@ def format_times(times):
     return marks
 
 
-layout = html.Div(
+layout = dbc.Container(
     [
-        dmc.Container(
-            [
-                dcc.Link(
-                    dmc.Button("Home Page", variant="outline"),
-                    href="/",
-                ),
-                dcc.Link(
-                    dmc.Button("Map", variant="filled"),
-                    href="/subpage",
-                ),
-                dcc.Link(
-                    dmc.Button("About", variant="outline"),
-                    href="/about",
-                ),
-            ],
-            fluid=True,
-            style={
-                "textAlign": "left",
-                "width": "100%",
-                "maxWidth": "1200px",
-                "margin": "10px auto 50px",
-            },
-        ),
+        pages.components.top_layout,
         html.Div(
             [
                 # Left Column for Map and Slider
@@ -161,6 +141,7 @@ layout = html.Div(
         ),
     ],
     style={"textAlign": "center", "width": "100%", "margin": "0 auto"},
+    fluid=True,
 )
 
 
