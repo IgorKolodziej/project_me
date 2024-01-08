@@ -7,7 +7,7 @@ layout = dbc.Container(
             dbc.Col(
                 html.H1(
                     "👋 Welcome to the top runners dashboard! 🏃",
-                    style={"text-align": "center"},
+                    style={"text-align": "center", "margin": "50px 0"},
                 )
             )
         ),

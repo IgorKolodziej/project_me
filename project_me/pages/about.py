@@ -65,6 +65,6 @@ layout = dbc.Container(
         "width": "100%",
         "maxWidth": "1200px",
         "margin": "10px auto 50px",
-        "height": "100vh",
+        # "height": "100vh",
     },
 )

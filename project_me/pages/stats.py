@@ -87,11 +87,20 @@ layout = dbc.Container(
                         dbc.Select(
                             id="any_dependencies_dropdown",
                             options=[
-                                {"label": "Speed vs Duration", "value": 1},
-                                {"label": "Duration vs Season", "value": 2},
-                                {"label": "Length vs Season", "value": 3},
+                                {
+                                    "label": "Speed vs Duration",
+                                    "value": "Speed vs Duration",
+                                },
+                                {
+                                    "label": "Duration vs Season",
+                                    "value": "Duration vs Season",
+                                },
+                                {
+                                    "label": "Length vs Season",
+                                    "value": "Length vs Season",
+                                },
                             ],
-                            value=1,
+                            value="Speed vs Duration",
                             style={"width": "40%", "margin": "0 auto"},
                         ),
                     ]
@@ -164,12 +173,12 @@ layout = dbc.Container(
                                 "Distance": "Distance (km)",
                                 "Max Speed": "Max Speed (m/s)",
                             },
-                            trendline="ols",
+                            # trendline="ols",
                             title="How is max speed influenced by distance and run duration?",  # noqa: E501
                         ).update_layout(
                             autosize=False,
-                            width=1200,
-                            height=800,
+                            width=800,
+                            height=400,
                         ),
                     ),
                     width=8,
@@ -178,6 +187,12 @@ layout = dbc.Container(
         ),
     ],
     fluid=True,
+    style={
+        "textAlign": "center",
+        "width": "100%",
+        "maxWidth": "1200px",
+        "margin": "0 auto",
+    },
 )
 
 
@@ -215,7 +230,7 @@ def update_who_is_the_best(option_slctd):
             else "Distance (km)",
             "Runner": "Runner",
         },
-    )
+    ).update_layout(xaxis_categoryorder="total descending")
 
     return container, fig
 
@@ -230,7 +245,7 @@ def update_who_is_the_best(option_slctd):
     ],  # noqa: E501
 )
 def update_any_dependencies(option_slctd):
-    if option_slctd == 1:
+    if option_slctd == "Speed vs Duration":
         return px.line(
             data_frame=df.sort_values(by="Elapsed Time"),
             x="Elapsed Time",
@@ -244,7 +259,7 @@ def update_any_dependencies(option_slctd):
             # trendline="rolling",
             # trendline_options=dict(window=3),
         )
-    elif option_slctd == 2:
+    elif option_slctd == "Duration vs Season":
         return px.bar(
             data_frame=df.groupby(["Runner", "Season"])["Elapsed Time"]
             .mean()
@@ -256,7 +271,7 @@ def update_any_dependencies(option_slctd):
             labels={"Elapsed Time": "Duration (min)"},
             barmode="group",
         )
-    elif option_slctd == 3:
+    elif option_slctd == "Length vs Season":
         return px.bar(
             data_frame=df.groupby(["Runner", "Season"])["Distance"]
             .mean()

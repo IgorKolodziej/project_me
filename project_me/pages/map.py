@@ -1,6 +1,5 @@
 import dash_bootstrap_components as dbc
 import dash_leaflet as dl
-import dash_mantine_components as dmc
 import gpxpy
 import pages.components
 from app import app
@@ -44,10 +43,10 @@ def format_times(times):
 layout = dbc.Container(
     [
         pages.components.top_layout,
-        html.Div(
+        dbc.Row(
             [
                 # Left Column for Map and Slider
-                html.Div(
+                dbc.Col(
                     [
                         dl.Map(
                             [
@@ -69,41 +68,49 @@ layout = dbc.Container(
                     style={"padding-right": "20px"},
                 ),
                 # Right Column for RadioItems and Labels
-                html.Div(
+                dbc.Col(
                     [
-                        html.Div(
+                        dbc.Row(
                             [
-                                dmc.Text(
-                                    "Każdy z nas wybrał się na indywidualny bieg w okolicach Woli, by w sportowym duchu porównać czasy i trasy naszych przebieżek.",  # noqa: E501
-                                    color="black",
-                                    size="h3",
-                                    align="left",
+                                dbc.Col(
+                                    html.H4(
+                                        "Każdy z nas wybrał się na indywidualny bieg w okolicach Woli, "  # noqa: E501
+                                        "by w sportowym duchu "  # noqa: E501
+                                        "porównać czasy i trasy naszych przebieżek.",  # noqa: E501
+                                        style={
+                                            "color": "white",
+                                            "textAlign": "left",
+                                        },
+                                    ),  # noqa: E501
                                 ),
-                                dmc.Text(
-                                    "Mateusz, Igor oraz Nazari, wyposażeni w smartfony, wyruszyli w różne strony, eksplorując malownicze ścieżki i ulice dzielnicy.",  # noqa: E501
-                                    color="black",
-                                    size="h3",
-                                    align="left",
-                                    style={"marginTop": "20px"},
+                                dbc.Col(
+                                    html.H4(
+                                        "Mateusz, Igor oraz Nazarii, wyposażeni w smartfony, wyruszyli w "  # noqa: E501
+                                        "różne strony, eksplorując malownicze ścieżki i ulice dzielnicy.",  # noqa: E501
+                                        style={
+                                            "color": "white",
+                                            "textAlign": "left",
+                                        },
+                                    ),
                                 ),
                             ]
                         ),
-                        dmc.RadioGroup(
-                            id="route-selector",
-                            value="route1",
-                            orientation="vertical",
-                            withAsterisk=True,
-                            # label="Select a Route",
-                            size="md",
-                            style={"marginBottom": "40px"},
-                            children=[
-                                dmc.Radio(label="Mateusz", value="route1"),
-                                dmc.Radio(label="Igor", value="route2"),
-                                dmc.Radio(label="Nazari", value="route3"),
-                            ],
+                        dbc.Row(
+                            dbc.RadioItems(
+                                id="route-selector",
+                                value="route1",
+                                inline=True,
+                                labelStyle={"margin-right": "20px"},
+                                options=[
+                                    {"label": "Mateusz", "value": "route1"},
+                                    {"label": "Igor", "value": "route2"},
+                                    {"label": "Nazari", "value": "route3"},
+                                ],
+                            ),
+                            style={"marginTop": "50px"},
                         ),
                         # Label for displaying current time and speed
-                        html.Div(
+                        dbc.Row(
                             id="time-speed-label", style={"fontSize": 20}
                         ),  # noqa: E501
                         dcc.Slider(

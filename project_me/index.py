@@ -6,6 +6,7 @@ from dash.dependencies import Input, Output
 app.layout = html.Div(
     [dcc.Location(id="url", refresh=False), html.Div(id="page-content")]
 )
+app.title = "Top Runners"
 
 
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
