@@ -14,17 +14,17 @@ layout = dbc.Container(
                     [
                         dmc.Title(
                             "Dane i bieganie to przyszłość ",
-                            color="blue",
+                            color="orange",
                             size="h1",
                             style={"margin": "0 0 10px"},
                         ),
                         dmc.Text(
-                            "Ten projekt, będący krzyżówką technik wizualizacji danych i pasji do biegania, celebruje połączenie świata liczb z energią ruchu. W nim każdy przebyty metr zamienia się w wizualną opowieść, a oddech biegacza rytmicznie splata się z pulsującymi danymi.",  # noqa: E501
+                            "A cross between data visualization techniques and a passion for running, this project celebrates the combination of the world of numbers and the energy of movement. In it, every meter traveled is transformed into a visual story, and the runner's breath rhythmically intertwines with the pulsing data.",  # noqa: E501
                             align="left",
                             style={"margin": "0 0 10px"},
                         ),
                         dmc.Text(
-                            "W tej innowacyjnej przestrzeni, dane i bieganie stanowią dwa filary ludzkiego dążenia - do poznania i aktywności. Tu, w harmonii cyfr i kroków, tworzymy nie tylko projekt, lecz narrację o życiu, odkryciach i nieustającym marszu naprzód.",  # noqa: E501
+                            "In this innovative space, data and running are the two pillars of human endeavor - to know and to be active. Here, in a harmony of numbers and steps, we create not just a project, but a narrative of life, discovery and the relentless march forward.",  # noqa: E501
                             align="left",
                         ),
                     ],
@@ -34,11 +34,19 @@ layout = dbc.Container(
                 dbc.Col(
                     [
                         html.Div(
-                            "Tu będzie zdjęcie",
+                            dbc.CardImg(
+                                src="assets/runners.jpg",
+                                top=True,
+                                style={
+                                    "width": "90%",
+                                    "padding": "0",
+                                    "margin": "0",
+                                },  # noqa: E501
+                            ),
                             style={
                                 "width": "80%",
                                 "height": "500px",
-                                "backgroundColor": "#f0f0f0",
+                                "backgroundColor": "#f0f0f000",
                                 "textAlign": "center",
                                 "lineHeight": "200px",
                                 "padding": "10px",

@@ -35,7 +35,6 @@ df["Distance Range"] = pd.cut(
     bins=[0, 5, 10, 15, np.inf],
     labels=["0-5", "5-10", "10-15", "15+"],  # noqa: E501
 )
-
 # ------------------------------------------------------------------------------
 # App layout
 layout = dbc.Container(
@@ -116,47 +115,72 @@ layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(
-                    html.H2(
-                        id="do_we_run_a_lot_title",
-                        children="Do we run a lot?",
-                        style={"text-align": "center"},
-                    )
-                ),
-                dbc.Col(
-                    html.H2(
-                        id="max_speed_distance_time_title",
-                        children="When do we achieve our peak performance?",
-                        style={"text-align": "center"},
-                    ),
-                    width=8,
-                ),
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(
                     [
-                        html.H4(
-                            "Choose runner", style={"text-align": "center"}
-                        ),  # noqa: E501
-                        dbc.Select(
-                            id="do_we_run_a_lot_dropdown",
-                            options=[
-                                {"label": "Igor", "value": "Igor"},
-                                {"label": "Nazarii", "value": "Nazarii"},
-                                {"label": "Mateusz", "value": "Mateusz"},
-                            ],
-                            value="Igor",
-                            style={"width": "40%", "margin": "0 auto"},
+                        html.H2(
+                            id="do_we_run_a_lot_title",
+                            children="Do we run a lot?",
+                            style={"text-align": "center"},
+                        ),
+                        html.H5(
+                            id="do_we_run_a_lot_subtitle",
+                            children="Number of runs across varius distance ranges",  # noqa: E501
+                            style={"text-align": "center"},
                         ),
                     ]
                 ),
-                dbc.Col([], width=8),
-            ]
+                dbc.Col(
+                    [
+                        html.H2(
+                            id="max_speed_distance_time_title",
+                            children="When do we achieve our peak performance?",  # noqa: E501
+                            style={"text-align": "center"},
+                        ),
+                        html.H5(
+                            id="max_speed_distance_time_subtitle",
+                            children="How is max speed influenced by distance and run duration?",  # noqa: E501
+                            style={"text-align": "center"},
+                        ),
+                    ],
+                    width=9,
+                ),
+            ],
+            style={"marginTop": "50px"},
         ),
         dbc.Row(
             [
-                dbc.Col(dcc.Graph(id="do_we_run_a_lot", figure={})),
+                dbc.Col(
+                    dcc.Graph(
+                        id="do_we_run_a_lot",
+                        figure=px.bar(
+                            data_frame=df.groupby(
+                                ["Runner", "Distance Range"]
+                            )[  # noqa: E501
+                                "Distance Range"
+                            ]
+                            .value_counts()
+                            .reset_index(),  # noqa: E501
+                            x="Runner",
+                            y="count",
+                            color="Distance Range",
+                            barmode="stack",
+                            labels={"count": "Number of runs"},
+                        ).update_layout(
+                            legend_title_text="Distance Range (km)",
+                            width=325,
+                            height=600,
+                            legend=dict(
+                                orientation="h",
+                                yanchor="top",
+                                xanchor="left",
+                                borderwidth=2,
+                                y=-0.2,
+                                x=0.1,
+                                itemsizing="constant",
+                                entrywidth=30,
+                            ),
+                        ),
+                    )
+                ),
                 dbc.Col(
                     dcc.Graph(
                         id="max_speed_distance_time",
@@ -166,22 +190,20 @@ layout = dbc.Container(
                             y="Distance",
                             color="Runner",
                             size="Max Speed",
-                            marginal_x="box",
+                            marginal_x="violin",
                             marginal_y="violin",
                             labels={
                                 "Elapsed Time": "Duration (min)",
                                 "Distance": "Distance (km)",
                                 "Max Speed": "Max Speed (m/s)",
                             },
-                            # trendline="ols",
-                            title="How is max speed influenced by distance and run duration?",  # noqa: E501
                         ).update_layout(
                             autosize=False,
-                            width=800,
-                            height=400,
+                            width=1025,
+                            height=600,
                         ),
                     ),
-                    width=8,
+                    width=9,
                 ),
             ]
         ),
@@ -190,7 +212,7 @@ layout = dbc.Container(
     style={
         "textAlign": "center",
         "width": "100%",
-        "maxWidth": "1200px",
+        "maxWidth": "1400px",
         "margin": "0 auto",
     },
 )
@@ -256,8 +278,6 @@ def update_any_dependencies(option_slctd):
                 "Elapsed Time": "Duration (min)",
                 "Average Speed": "Speed (m/s)",
             },  # noqa: E501
-            # trendline="rolling",
-            # trendline_options=dict(window=3),
         )
     elif option_slctd == "Duration vs Season":
         return px.bar(
@@ -283,27 +303,3 @@ def update_any_dependencies(option_slctd):
             labels={"Distance": "Distance (km)"},
             barmode="group",
         )
-
-
-@app.callback(
-    Output(component_id="do_we_run_a_lot", component_property="figure"),
-    [
-        Input(
-            component_id="do_we_run_a_lot_dropdown", component_property="value"
-        )  # noqa: E501
-    ],  # noqa: E501
-)
-def update_do_we_run_a_lot(option_slctd):
-    return px.pie(
-        data_frame=pd.DataFrame(
-            df.loc[df["Runner"] == option_slctd, "Distance Range"]
-            .value_counts()
-            .reset_index()
-        ),
-        values="count",
-        names="Distance Range",
-        title="Percentage of runs across distance ranges",
-        labels={"Distance Range": "Distance Range (km)"},
-    ).update_layout(
-        legend_title_text="Distance Range (km)",
-    )
