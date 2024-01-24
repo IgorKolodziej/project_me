@@ -7,6 +7,7 @@ app.layout = html.Div(
     [dcc.Location(id="url", refresh=False), html.Div(id="page-content")]
 )
 app.title = "Top Runners"
+server=app.server
 
 
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
