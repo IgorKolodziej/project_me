@@ -13,7 +13,7 @@ layout = dbc.Container(
                 dbc.Col(
                     [
                         dmc.Title(
-                            "Dane i bieganie to przyszłość ",
+                            "Data and running is a future",
                             color="orange",
                             size="h1",
                             style={"margin": "0 0 10px"},

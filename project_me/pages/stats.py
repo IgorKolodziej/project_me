@@ -7,7 +7,7 @@ from app import app
 from dash import Input, Output, dcc, html
 
 # -- Import and clean data
-df = pd.read_csv("data/run_stats/activities.csv", index_col="Activity ID")
+df = pd.read_csv("project_me/data/run_stats/activities.csv", index_col="Activity ID")
 
 df["Elapsed Time"] = df["Elapsed Time"] / 60
 df["Season"] = (
