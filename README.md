@@ -1,8 +1,8 @@
-# Project Me
+# Welcome to the top runners dashboard!
 
-## Description
+## LINK DO NAGRANIA
 
-Lecimy nie śpimy
+https://youtu.be/2V1Vvq2AhYo?si=MXx8FXPqyTD4DB0y
 
 ## Getting Started
 
@@ -43,6 +43,13 @@ With Poetry installed, you can create a virtual environment with all necessary d
 ```bash
 poetry install
 ```
+##### Running the app
+In order to start the app
+
+```bash
+poetry run python3 ./project_me/index.py
+```
+
 ##### Development
 5. **Set up pre-commit**
 Set up pre-commit hooks by running:
@@ -56,15 +63,6 @@ You can run all pre-commit hooks on all files by running:
 ```bash
 poetry run pre-commit run --all-files
 ```
-
-## Running the tests
-
-Explain how to run the automated tests for this system.
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system.
-
 ## Built With
 
 * Dash - The web framework used
@@ -73,22 +71,9 @@ Add additional notes about how to deploy this on a live system.
 * Poetry - Dependency Management
 * Pre-commit - Git hooks manager
 
-## Contributing
-
-Please read `CONTRIBUTING.md` for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Authors
 
-* **Your Name** - *Initial work* - YourUsername
+* Igor Kołodziej
+* Mateusz Iwaniuk
+* Nazarii Bihniak
 
-See also the list of contributors who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the `LICENSE.md` file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
