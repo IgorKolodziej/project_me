@@ -74,9 +74,7 @@ layout = dbc.Container(
                             [
                                 dbc.Col(
                                     html.H4(
-                                        "Każdy z nas wybrał się na indywidualny bieg w okolicach Woli, "  # noqa: E501
-                                        "by w sportowym duchu "  # noqa: E501
-                                        "porównać czasy i trasy naszych przebieżek.",  # noqa: E501
+                                        "Each of us went for an individual run around Wola district to compare the times and routes of our runs in a sporting spirit.",  # noqa: E501
                                         style={
                                             "color": "white",
                                             "textAlign": "left",
@@ -85,8 +83,7 @@ layout = dbc.Container(
                                 ),
                                 dbc.Col(
                                     html.H4(
-                                        "Mateusz, Igor oraz Nazarii, wyposażeni w smartfony, wyruszyli w "  # noqa: E501
-                                        "różne strony, eksplorując malownicze ścieżki i ulice dzielnicy.",  # noqa: E501
+                                        "Matthew, Igor and Nazarii, equipped with smartphones, set off in different directions, exploring the picturesque paths and streets of the district",  # noqa: E501
                                         style={
                                             "color": "white",
                                             "textAlign": "left",
@@ -175,6 +172,6 @@ def update_marker(slider_value, selected_route):
     route_coords = routes[selected_route]["coords"]
     return [
         dl.TileLayer(),
-        dl.Polyline(positions=route_coords),
-        dl.Marker(position=route_coords[slider_value], id="marker"),
+        dl.Polyline(positions=route_coords,color="orange"),
+        dl.CircleMarker(center=route_coords[slider_value],radius=12, id="marker",color="#20374c"),
     ]
