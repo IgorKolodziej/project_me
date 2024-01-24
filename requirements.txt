@@ -143,7 +143,7 @@ pure-eval==0.2.2
 pycairo==1.20.1
 pycodestyle==2.9.1
 pycparser==2.21
-pycryptodomex==3.11.0
+pycryptodomex==3.19.1
 pycups==2.0.1
 pyflakes==2.5.0
 Pygments==2.15.1
