@@ -1,8 +1,10 @@
 # Welcome to the top runners dashboard!
 
-## LINK DO NAGRANIA
+## Showcase video
 
-https://youtu.be/2V1Vvq2AhYo?si=MXx8FXPqyTD4DB0y
+
+[Check it out!](https://youtu.be/2V1Vvq2AhYo?si=MXx8FXPqyTD4DB0y)
+
 
 ## Getting Started
 
